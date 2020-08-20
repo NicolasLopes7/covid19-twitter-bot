@@ -9,7 +9,8 @@ import { TwitterClient } from "./lib";
 
 const sendedReports = [];
 
-setInterval(() => {
+setInterval(async () => {
+    console.log(sendedReports);
     const imgArray = await getImages();
     const dayImages = [];
     imgArray.forEach((img) => {
@@ -24,7 +25,10 @@ setInterval(() => {
 
     for (let i = 0; i < dayImages.length; i++) {
         const imageContent = await getImageContent(dayImages[i].src);
-        sendedReports.push(dayImages[i].alt);
-        TwitterClient.tweet(parseImageContentToTweet(imageContent));
+
+        if (imageContent != false) {
+            TwitterClient.tweet(parseImageContentToTweet(imageContent));
+            sendedReports.push(dayImages[i].alt);
+        }
     }
-}, 10000)
+}, 100000);
