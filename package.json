@@ -5,7 +5,8 @@
     "license": "MIT",
     "scripts": {
         "start": "sucrase-node ./src/index.js",
-        "dev": "nodemon ./src/index.js"
+        "dev": "nodemon ./src/index.js",
+        "build": "sucrase ./src -d ./dist --transforms imports"
     },
     "dependencies": {
         "@google-cloud/vision": "^2.1.1",

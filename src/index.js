@@ -12,6 +12,7 @@ const sendedReports = [];
 setInterval(async () => {
     console.log(sendedReports);
     const imgArray = await getImages();
+    console.log(imgArray);
     const dayImages = [];
     imgArray.forEach((img) => {
         if (
