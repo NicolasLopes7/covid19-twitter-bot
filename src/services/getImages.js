@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 
-(async function getImages() {
+export default async function getImages() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto("https://www.instagram.com/prefeituracurraisnovos");
@@ -12,6 +12,6 @@ import puppeteer from "puppeteer";
 
         return imgArray;
     });
-    console.log(imgArray);
     await browser.close();
-})();
+    return imgArray;
+}
