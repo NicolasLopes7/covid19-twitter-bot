@@ -1,17 +1,8 @@
 export default function parseImageContentToTweet(imageContent) {
-    const dailyCovidData = {
-        lastUpdate: "",
-        monitoredPeopleCount: 0,
-        suspectedPeopleCount: 0,
-        ignoredPeopleCount: 0,
-        discardedPeopleCount: 0,
-        confirmedPeopleCount: 0,
-        inTreatmentPeopleCount: 0,
-        recoveredPeopleCount: 0,
-        deathsCount: 0,
-    };
+    const dailyCovidData = {};
 
     const lines = imageContent.split("\n");
+
     dailyCovidData.lastUpdate = lines[3];
     dailyCovidData.monitoredPeopleCount = lines[4].match(/(\d+)/)[0];
     dailyCovidData.suspectedPeopleCount = lines[5].match(/(\d+)/)[0];
